@@ -43,7 +43,6 @@ require_once('entity/Aprendiz.php');
                         echo "</td>";
                         echo "</tr>";
                     }
-                    $aprendiz->nombres="Freddy";
                     ?>
                 </tbody>
             </table>
