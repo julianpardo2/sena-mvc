@@ -1,9 +1,11 @@
 <?php
 
 require_once('AprendizController.php');
+require_once('InstructorController.php');
 
 class AppController {
     private $aprendiz;
+    private $instructor;
 
     public function __construct() {
     }
@@ -18,6 +20,11 @@ class AppController {
                 $this->aprendiz = new AprendizController();
             }
             $this->aprendiz->main();
+        } else if ($obj == 'instructor') {
+            if (!$this->instructor) {
+                $this->instructor = new InstructorController();
+            }
+            $this->instructor->main();
         }
     }
 }
