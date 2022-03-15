@@ -38,8 +38,8 @@ require_once('entity/Aprendiz.php');
                         echo "<td>".$aprendiz->apellidos."</td>";
                         echo "<td>".(($aprendiz->email)?$aprendiz->email:"No tienen Email")."</td>";
                         echo "<td>";
-                        echo "<a href='edit.php?id=$aprendiz->id' class='btn btn-warning'>Editar</a>";
-                        echo "<a href='delete.php?id=$aprendiz->id' class='btn btn-danger'>Eliminar</a>";
+                        echo "<a href='index.php?obj=aprendiz&action=editar&id=$aprendiz->id' class='btn btn-warning me-1'>Editar</a>";
+                        echo "<a href='index.php?obj=aprendiz&action=eliminar&id=$aprendiz->id' class='btn btn-danger'>Eliminar</a>";
                         echo "</td>";
                         echo "</tr>";
                     }

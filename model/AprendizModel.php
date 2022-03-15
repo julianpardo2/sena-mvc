@@ -54,11 +54,16 @@ class AprendizModel {
         $sql = "UPDATE ".$this->table." SET documento=:doc, nombres=:nom,".
             " apellidos=:ape, email=:email WHERE id=:id";
         $query = $db->prepare($sql);
-        $query->bindParam(':doc', $aprendiz->documeto);
-        $query->bindParam(':nom', $aprendiz->nombres);
-        $query->bindParam(':ape', $aprendiz->apellidos);
-        $query->bindParam(':email', $aprendiz->email);
-        $query->bindParam(':id',$aprendiz->id);
+        $doc=$aprendiz->documento;
+        $nom=$aprendiz->nombres;
+        $ape=$aprendiz->apellidos;
+        $email=$aprendiz->email;
+        $id=$aprendiz->id;
+        $query->bindParam(':doc', $doc);
+        $query->bindParam(':nom', $nom);
+        $query->bindParam(':ape', $ape);
+        $query->bindParam(':email', $email);
+        $query->bindParam(':id', $id);
         $query->execute();
     }
 
