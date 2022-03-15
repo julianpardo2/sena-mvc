@@ -44,6 +44,7 @@ class AprendizController {
             return;
         }
         include_once('view/aprendiz/edit.php');
+        //Comentario
     }
 
     public function eliminarAprendiz() {
