@@ -14,7 +14,8 @@ class CursoModel {
 
     public function getCursos() {
         $db = new Db();
-        $sql = "SELECT * FROM ".$this->table;
+        //$sql = "SELECT * FROM ".$this->table;
+        $sql="SELECT c.*, concat(i.nombres,\" \", i.apellidos) as instructorObj FROM `cursos` as c, `instructores` as i WHERE c.instructor=i.id";
         $query = $db->prepare($sql);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_CLASS, 'Curso');
