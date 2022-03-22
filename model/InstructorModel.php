@@ -6,6 +6,7 @@ require_once('entity/Instructor.php');
 class InstructorModel {
 
     private $table = 'instructores';
+    static $tableStatic = 'instructores';
 
     public function __construct() {       
     }

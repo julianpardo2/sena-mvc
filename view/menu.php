@@ -10,6 +10,7 @@ include ('head.php');
             <div class="col-lg-8 offset-lg-2 text-center">
                 <a href="index.php?obj=aprendiz" class="btn btn-primary ">Gestionar Aprendiz</a><br>
                 <a href="index.php?obj=instructor" class="btn btn-primary mt-2">Gestionar Instructor</a><br>
+                <a href="index.php?obj=curso" class="btn btn-primary mt-2">Gestionar Curso</a><br>
             </div>
         </div>
     </div>
