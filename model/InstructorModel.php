@@ -53,17 +53,17 @@ class InstructorModel {
         $query->execute();
     }
 
-    public function updateInstructor($aprendiz) {
+    public function updateInstructor($instructor) {
         $db = new Db();
         $sql = "UPDATE ".$this->table." SET documento=:doc, nombres=:nom,".
             " apellidos=:ape, area=:area, email=:email WHERE id=:id";
         $query = $db->prepare($sql);
-        $doc=$aprendiz->documento;
-        $nom=$aprendiz->nombres;
-        $ape=$aprendiz->apellidos;
-        $area=$aprendiz->area;
-        $email=$aprendiz->email;
-        $id=$aprendiz->id;
+        $doc=$instructor->documento;
+        $nom=$instructor->nombres;
+        $ape=$instructor->apellidos;
+        $area=$instructor->area;
+        $email=$instructor->email;
+        $id=$instructor->id;
         $query->bindParam(':doc', $doc);
         $query->bindParam(':nom', $nom);
         $query->bindParam(':ape', $ape);
