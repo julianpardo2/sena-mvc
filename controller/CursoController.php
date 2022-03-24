@@ -23,7 +23,25 @@ class CursoController {
             $this->editarCurso();
         } elseif ($action == "ver") {
             $this->verCurso();
+        } elseif ($action == "addAprendiz") {
+            $this->addAprendiz();
+        } else {
+            $this->opcionNoValida();
         }
+    }
+
+    public function addAprendiz() {
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        if (!$id) {
+            header("Location: index.php?obj=curso");
+            return;
+        }
+        $curso = $this->data->getCurso($id);
+        include_once('view/curso/addAprendiz.php');
+    }
+
+    public function opcionNoValida() {
+        include_once('view/curso/error.php');
     }
 
     public function verCurso() {
