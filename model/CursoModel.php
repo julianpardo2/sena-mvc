@@ -95,6 +95,22 @@ class CursoModel {
         $query = $db->prepare($sql);
         $query->execute();
     }
+
+    public function addAprendizCurso($id, $id_aprendiz) {
+        $db = new Db();
+        $sql = "INSERT INTO curso_tiene_aprendiz (id_curso, id_aprendiz) VALUES ($id, $id_aprendiz)";
+        $query = $db->prepare($sql);
+        $query->execute();
+    }
+
+    public function getAprendicesNoCurso($id) {
+        $db = new Db();
+        $sql = "SELECT * FROM aprendices where id NOT IN ".
+        "(SELECT id_aprendiz from curso_tiene_aprendiz WHERE id_curso=$id)";
+        $query = $db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, 'Aprendiz');
+    }
 }
 
 
