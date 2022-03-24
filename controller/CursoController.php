@@ -25,9 +25,26 @@ class CursoController {
             $this->verCurso();
         } elseif ($action == "addAprendiz") {
             $this->addAprendiz();
+        } elseif ($action == "deleteAprendiz") {
+            $this->deleteAprendiz();
         } else {
             $this->opcionNoValida();
         }
+    }
+
+    public function deleteAprendiz() {
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        if (!$id) {
+            header("Location: index.php?obj=curso");
+            return;
+        }
+        $id_aprendiz = isset($_GET['id_aprendiz']) ? $_GET['id_aprendiz'] : null;
+        if (!$id) {
+            header("Location: index.php?obj=curso&action=addAprendiz&id=$id");
+            return;
+        }
+        $this->data->deleteAprendizCurso($id, $id_aprendiz);
+        header("Location: index.php?obj=curso&action=addAprendiz&id=$id");
     }
 
     public function addAprendiz() {

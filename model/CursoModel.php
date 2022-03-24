@@ -88,6 +88,13 @@ class CursoModel {
         $query->bindParam(':id', $id);
         $query->execute();
     }
+
+    public function deleteAprendizCurso($id, $id_aprendiz) {
+        $db = new Db();
+        $sql = "DELETE FROM curso_tiene_aprendiz WHERE id_curso=$id and id_aprendiz=$id_aprendiz";
+        $query = $db->prepare($sql);
+        $query->execute();
+    }
 }
 
 

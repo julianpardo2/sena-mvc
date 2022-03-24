@@ -9,7 +9,7 @@ require_once('entity/Aprendiz.php');
 <!DOCTYPE html>
 <html lang="es">
 <?php
-$titulo="Ver de Curso";
+$titulo="Agregar Aprendices al Curso";
 include ('view/head.php');
 ?>
 <body>
@@ -35,6 +35,8 @@ include ('view/head.php');
             </tr>
         </table>
         <br><br>
+        <a href="index.php?obj=curso&action=listarAprendices&id=<?php echo $curso->id?>" class="btn btn-success">Agregar Aprendices</a>
+        <br><br>
         <h1>Lista de Aprendices</h1>
         <br><br>
         <?php
@@ -47,6 +49,7 @@ include ('view/head.php');
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
+                    <th>Opciones</th>
                 </thead>
                 <tbody>
                     <?php
@@ -57,6 +60,9 @@ include ('view/head.php');
                         echo "<td>$aprendiz->nombres</td>";
                         echo "<td>".$aprendiz->apellidos."</td>";
                         echo "<td>".(($aprendiz->email)?$aprendiz->email:"No tienen Email")."</td>";
+                        echo "<td>";
+                        echo "<a href='index.php?obj=curso&action=deleteAprendiz&id=$curso->id&id_aprendiz=$aprendiz->id' class='btn btn-danger'>Eliminar</a>";
+                        echo "</td>";
                         echo "</tr>";
                     }
                     ?>
