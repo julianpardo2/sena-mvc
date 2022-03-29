@@ -1,7 +1,7 @@
 <?php
 
 class Db extends PDO {
-    private $db = 'sena-mvc';
+    private $db = 'miproyecto';
     private $host = 'localhost';
     private $username = 'root';
     private $password = '';

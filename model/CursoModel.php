@@ -30,14 +30,14 @@ class CursoModel {
 
     public function addCurso($curso) {
         $db = new Db();
-        $sql = "INSERT INTO ".$this->table." (codigo, nombre, instructor, numHoras) VALUES ".
+        $sql = "INSERT INTO ".$this->table." (codigo, nombre, instructor, horas) VALUES ".
         "(:cod,:nom,:inst,:numH)";
         $query = $db->prepare($sql);
         //$query->bindParam(':id',NULL);
         $cod=$curso->codigo;
         $nom=$curso->nombre;
         $inst=$curso->instructor;
-        $numH=$curso->numHoras;
+        $numH=$curso->horas;
         $query->bindParam(':cod', $cod);
         $query->bindParam(':nom', $nom);
         $query->bindParam(':inst', $inst);
@@ -74,12 +74,12 @@ class CursoModel {
     public function updateCurso($curso) {
         $db = new Db();
         $sql = "UPDATE ".$this->table." SET codigo=:cod, nombre=:nom,".
-            " instructor=:inst, numHoras=:numH WHERE id=:id";
+            " instructor=:inst, horas=:numH WHERE id=:id";
         $query = $db->prepare($sql);
         $cod=$curso->codigo;
         $nom=$curso->nombre;
         $inst=$curso->instructor;
-        $numH=$curso->numHoras;
+        $numH=$curso->horas;
         $id=$curso->id;
         $query->bindParam(':cod', $cod);
         $query->bindParam(':nom', $nom);

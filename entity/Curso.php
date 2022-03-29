@@ -4,7 +4,7 @@ class Curso {
     private $id;
     private $codigo;
     private $nombre;
-    private $numHoras;
+    private $horas;
     //
     private $instructor;
     private $instructorObj;
